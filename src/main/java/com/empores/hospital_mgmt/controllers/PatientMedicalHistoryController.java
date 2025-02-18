@@ -47,7 +47,7 @@ public class PatientMedicalHistoryController {
         catch (Exception e){
             e.printStackTrace();
         }
-        return "/patientMH/newPatientMH";
+        return "patientMH/newPatientMH";
     }
 
     @GetMapping("/loadSelectedPatient/{patientId}")
@@ -63,7 +63,7 @@ public class PatientMedicalHistoryController {
         }catch(Exception e){
             e.printStackTrace();
         }
-        return "/patientMH/newPatientMH";
+        return "patientMH/newPatientMH";
     }
 
 
@@ -79,7 +79,7 @@ public class PatientMedicalHistoryController {
         }catch(Exception e){
             e.printStackTrace();
         }
-        return "/patientMH/newPatientMH";
+        return "patientMH/newPatientMH";
     }
 
     @GetMapping("/updateMHForm/{id}")
@@ -104,7 +104,7 @@ public class PatientMedicalHistoryController {
         }catch(Exception e){
             e.printStackTrace();
         }
-        return "/patientMH/newPatientMH";
+        return "patientMH/newPatientMH";
 
     }
 

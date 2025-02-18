@@ -54,7 +54,7 @@ public class PatientFoodHistoryController {
         }catch(Exception e){
             e.printStackTrace();
         }
-        return "/patientFH/newPatientFH";
+        return "patientFH/newPatientFH";
     }
 
     @GetMapping("/loadSelectedPatient/{patientId}")
@@ -70,7 +70,7 @@ public class PatientFoodHistoryController {
         }catch(Exception e){
             e.printStackTrace();
         }
-        return "/patientFH/newPatientFH";
+        return "patientFH/newPatientFH";
     }
 
 
@@ -85,7 +85,7 @@ public class PatientFoodHistoryController {
         }catch(Exception e){
             e.printStackTrace();
         }
-        return "/patientFH/newPatientFH";
+        return "patientFH/newPatientFH";
     }
 
     @GetMapping("/updateFHForm/{id}")
