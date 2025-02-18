@@ -50,7 +50,7 @@ public class PatientController {
         }catch (Exception e) {
             e.printStackTrace();
         }
-        return "/patient/newPatient";
+        return "patient/newPatient";
     }
 
 
