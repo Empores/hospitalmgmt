@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+  <meta charset="ISO-8859-1">
+  <title>Hospital Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.bootstrap5.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"/>
+  <script src="/js/commonjs.js"></script>
+  <link rel="stylesheet" href="/css/commonstyle.css">
+</head>
+<body>
+<header th:insert="fragments/header.html :: header"> </header>
+<div class="container p-2" style="width:100%">
+
+  <form action="#" th:action="@{/patient/index}" th:object="${patientDTO}"
+      method="GET">
+  <div style="text-align: left; font-weight: bold">
+    <div class="row">
+      <div class="col-sm-7">
+    View Patient Information<br>
+      </div>
+      <div class="col-sm-3">
+      <button type="submit" id="myBtn"  class="form-control-sm btn align-content-end
+                btn-info btn-sm ">Back</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row mt-3">
+    <div class="col-sm-1">
+      <label class="form-label col-form-label-sm">Name:</label>
+    </div>
+    <div class="col-sm-1">
+      <td th:text="${patientDTO.patient.patientName}"></td>
+    </div>
+
+       <div class="col-sm-1">
+        <label class="form-label col-form-label-sm">Phone No:</label>
+      </div>
+      <div class="col-sm-1">
+        <td th:text="${patientDTO.patient.phoneNo}"></td>
+      </div>
+      <div class="col-sm-1">
+        <label class="form-label col-form-label-sm">Email ID:</label>
+      </div>
+      <div class="col-sm-1">
+        <td th:text="${patientDTO.patient.emailId}"></td>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-sm-1">
+        <label class="form-label col-form-label-sm">Date of Birth:</label>
+      </div>
+      <div class="col-sm-1">
+        <td th:text="${#dates.format(patientDTO.patient.dob, 'dd-MM-yyyy')}"></td>
+      </div>
+      <div class="col-sm-1">
+        <label class="form-label col-form-label-sm">Gender:</label>
+      </div>
+      <div class="col-sm-1">
+        <td th:text="${patientDTO.patient.sex}"></td>
+      </div>
+      <div class="col-sm-1">
+        <label class="form-label col-form-label-sm">Address:</label>
+      </div>
+      <div class="col-sm-1">
+        <td th:text="${patientDTO.patient.address}"></td>
+      </div>
+    </div>
+
+    <div th:if="${patientDTO.patientMedicalHistory != null}">
+    <div class="row mt-3">
+      <div class="col-sm-1">
+        <label class="form-label col-form-label-sm">Last Updated Date:</label>
+      </div>
+      <div class="col-sm-1">
+        <td th:text="${#dates.format(patientDTO.patientMedicalHistory.dateTime, 'dd-MM-yyyy')}"></td>
+      </div>
+
+      <div class="col-sm-1">
+        <label class="form-label col-form-label-sm">BMI:</label>
+      </div>
+      <div class="col-sm-1">
+        <td th:text="${patientDTO.patientMedicalHistory.bmi}"></td>
+      </div>
+      <div class="col-sm-2">
+        <label class="form-label col-form-label-sm">Systolic Pressure:</label>
+      </div>
+      <div class="col-sm-1">
+        <td th:text="${patientDTO.patientMedicalHistory.systolic}"></td>
+      </div>
+      <div class="col-sm-2">
+        <label class="form-label col-form-label-sm">Diastolic Pressure:</label>
+      </div>
+      <div class="col-sm-1">
+        <td th:text="${patientDTO.patientMedicalHistory.diastolic}"></td>
+      </div>
+
+    </div>
+
+
+    <div class="row mt-3">
+      <div class="col-sm-1">
+        <label class="form-label col-form-label-sm">LDL:</label>
+      </div>
+      <div class="col-sm-1">
+        <td th:text="${patientDTO.patientMedicalHistory.ldlValue}"></td>
+      </div>
+      <div class="col-sm-1">
+        <label class="form-label col-form-label-sm">HDL:</label>
+      </div>
+      <div class="col-sm-1">
+        <td th:text="${patientDTO.patientMedicalHistory.hdlValue}"></td>
+      </div>
+      <div class="col-sm-2">
+        <label class="form-label col-form-label-sm">Total Cholesterol:</label>
+      </div>
+      <div class="col-sm-1">
+        <td th:text="${patientDTO.patientMedicalHistory.totalchl}"></td>
+      </div>
+      <div class="col-sm-1">
+        <label class="form-label col-form-label-sm">Triglycerides:</label>
+      </div>
+      <div class="col-sm-1">
+        <td th:text="${patientDTO.patientMedicalHistory.triglycerides}"></td>
+      </div>
+    </div>
+
+
+    <div class="row mt-3">
+      <div class="col-sm-1">
+        <label class="form-label col-form-label-sm">Fasting Sugar:</label>
+      </div>
+      <div class="col-sm-1">
+        <td th:text="${patientDTO.patientMedicalHistory.fastingSugar}"></td>
+      </div>
+      <div class="col-sm-1">
+        <label class="form-label col-form-label-sm">Post Meal Sugar:</label>
+      </div>
+      <div class="col-sm-1">
+        <td th:text="${patientDTO.patientMedicalHistory.postMealSugar}"></td>
+      </div>
+      <div class="col-sm-1">
+        <label class="form-label col-form-label-sm">HBA1C:</label>
+      </div>
+      <div class="col-sm-2">
+        <td th:text="${patientDTO.patientMedicalHistory.hbalc}"></td>
+      </div>
+      <div class="col-sm-1">
+        <label class="form-label col-form-label-sm">Homa Index:</label>
+      </div>
+      <div class="col-sm-1">
+        <td th:text="${patientDTO.patientMedicalHistory.homaIndex}"></td>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-sm-1">
+        <label class="form-label col-form-label-sm">Notes:</label>
+      </div>
+      <div class="col-sm-3">
+        <td th:text="${patientDTO.patient.notes}"></td>
+      </div>
+    </div>
+
+    </div>
+
+  </form>
+</div>
+</body>
+</html>

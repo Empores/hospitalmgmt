@@ -1,0 +1,16 @@
+<header th:fragment="header">
+    <nav>
+            <ul>
+                <li class="nav-item" id="register" >
+                    <a  th:href="@{/patient/index}">Register Patient</a>
+                </li>
+                <li class="nav-item" id="ehr">
+                    <a  th:href="@{/patientMH/index}">EHR</a>
+                </li>
+                <li class="nav-item" id="fh">
+                    <a  th:href="@{/patientFH/index}">Food History</a>
+                </li>
+            </ul>
+
+    </nav>
+</header>
